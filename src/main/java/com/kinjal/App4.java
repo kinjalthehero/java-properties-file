@@ -1,4 +1,4 @@
-package com.mkyong;
+package com.kinjal;
 
 import java.io.IOException;
 import java.io.InputStream;

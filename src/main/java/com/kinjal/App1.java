@@ -1,21 +1,17 @@
-package com.mkyong.bk;
+package com.kinjal;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Properties;
 
-public class App1_OldDays {
+public class App1 {
 
     public static void main(String[] args) {
 
-        Properties prop = new Properties();
-        OutputStream output = null;
+        try (OutputStream output = new FileOutputStream("config.properties")) {
 
-        try {
-
-            // create a .properties file on demand
-            output = new FileOutputStream("config.properties");
+            Properties prop = new Properties();
 
             // set the properties value
             prop.setProperty("db.url", "localhost");
@@ -29,16 +25,7 @@ public class App1_OldDays {
 
         } catch (IOException io) {
             io.printStackTrace();
-        } finally {
-            if (output != null) {
-                try {
-                    output.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
         }
-    }
 
+    }
 }
